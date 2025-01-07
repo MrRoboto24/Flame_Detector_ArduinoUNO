@@ -12,7 +12,7 @@ def listen_to_arduino():
         if data == "Fire detected.":
             time.sleep(5)
             print("Fire detected! Running email script...")
-            subprocess.run(["python", "mr.roboto.py"])
+            subprocess.run(["python", "email_sender.py"])
 try:
     if __name__ == "__main__":
         listen_to_arduino()
