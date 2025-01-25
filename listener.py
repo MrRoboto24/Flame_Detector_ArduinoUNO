@@ -10,9 +10,11 @@ def listen_to_arduino():
     while True:
         data = arduino.readline().decode('utf-8').strip()
         if data == "Fire detected.":
-            time.sleep(5)
-            print("Fire detected! Running email script...")
             subprocess.run(["python", "email_sender.py"])
+            print("Fire detected! Running email script...")
+            subprocess.run(["python", "push_notification.py"])
+            print("Fire detected! Running Push Notification script...")
+            time.sleep(2)
 try:
     if __name__ == "__main__":
         listen_to_arduino()
